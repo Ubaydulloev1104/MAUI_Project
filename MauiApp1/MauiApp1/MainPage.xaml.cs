@@ -9,10 +9,10 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
-
+            await Navigation.PushModalAsync(new NewPage1());
             if (count == 1)
                 CounterBtn.Text = $"Clicked {count} time";
             else
