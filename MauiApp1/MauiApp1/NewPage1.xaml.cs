@@ -43,22 +43,6 @@ public partial class NewPage1 : ContentPage
             otvet = 0;
         }
         Botton_1.Text = "ok";
-
-        //int ot_p_p = formula.fd(p1,p2);
-        //if (otvet != ot_p_p)
-        //{
-        //    nepravelni_otvet += 1;
-        //    rnd_ot-=1;
-        //    DisplayAlert("System", $"Неправилно😕,правилний ответ {ot_p_p}!", "ok");
-        //}
-        //else if (otvet == ot_p_p)
-        //{
-        //    if (shotchik != 0)
-        //    {
-        //        pravelni_otvet += 1;
-        //        rnd_ot+=1;  
-        //    }
-        //}
         Rnd rnd = new Rnd();
         p1 = rnd.rr(rnd_ot);
         p2 = rnd.rr(rnd_ot);
