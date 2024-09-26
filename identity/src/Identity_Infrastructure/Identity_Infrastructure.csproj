@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Identity_Application\Identity_Application.csproj" />
-    <ProjectReference Include="..\Identity_Domain\Identity_Domain.csproj" />
   </ItemGroup>
 
 </Project>

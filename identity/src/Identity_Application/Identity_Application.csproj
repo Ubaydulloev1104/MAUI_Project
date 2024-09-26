@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Identity_Application.Contracts\Identity_Application.Contracts.csproj" />
     <ProjectReference Include="..\Identity_Domain\Identity_Domain.csproj" />
   </ItemGroup>
 
