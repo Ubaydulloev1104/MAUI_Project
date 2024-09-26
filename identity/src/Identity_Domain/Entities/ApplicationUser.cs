@@ -9,6 +9,5 @@ public class ApplicationUser : IdentityUser<Guid>
     public string PhoneNumber { get; set; }
     public string Email { get; set; }
     public string AboutMyself { get; set; }
-    public List<EducationDetail> Educations { get; set; }
 
 }
