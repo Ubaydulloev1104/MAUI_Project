@@ -21,15 +21,4 @@
     <ProjectReference Include="..\Identity_Domain\Identity_Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Role\Commands\" />
-    <Folder Include="Features\Role\Queries\" />
-    <Folder Include="Features\UserProfiles\Commands\" />
-    <Folder Include="Features\UserProfiles\Queries\" />
-    <Folder Include="Features\UserRoles\Commands\" />
-    <Folder Include="Features\UserRoles\Queries\" />
-    <Folder Include="Features\Users\Commands\" />
-    <Folder Include="Features\Users\Queries\" />
-  </ItemGroup>
-
 </Project>
