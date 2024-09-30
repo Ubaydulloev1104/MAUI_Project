@@ -1,6 +1,7 @@
 ﻿using Identity_Application.Common.Exceptions;
 using Identity_Application.Common.Interfaces.DbContexts;
 using Identity_Application.Contracts.UserRoles.Commands;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Identity_Application.Features.UserRoles.Commands;

@@ -3,6 +3,7 @@ using Identity_Application.Common.Interfaces.DbContexts;
 using Identity_Application.Contracts.UserRoles.Queries;
 using Identity_Application.Contracts.UserRoles.Response;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

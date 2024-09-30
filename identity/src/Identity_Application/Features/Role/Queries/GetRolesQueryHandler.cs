@@ -2,6 +2,7 @@
 using Identity_Application.Contracts.ApplicationRoles.Queries;
 using Identity_Application.Contracts.ApplicationRoles.Responses;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

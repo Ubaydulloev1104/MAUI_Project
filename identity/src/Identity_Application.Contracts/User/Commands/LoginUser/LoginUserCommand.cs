@@ -1,5 +1,5 @@
-﻿using MediatR;
-using TSR_Accoun_Application.Contracts.User.Responses;
+﻿using Identity_Application.Contracts.User.Responses;
+using MediatR;
 
 namespace Identity_Application.Contracts.User.Commands.LoginUser
 {

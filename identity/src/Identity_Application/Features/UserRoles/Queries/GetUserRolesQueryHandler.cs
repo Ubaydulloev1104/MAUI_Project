@@ -2,6 +2,7 @@
 using Identity_Application.Contracts.UserRoles.Queries;
 using Identity_Application.Contracts.UserRoles.Response;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Identity_Application.Features.UserRoles.Queries

@@ -1,5 +1,6 @@
 ﻿using Identity_Application.Contracts.User.Responses;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TSR_Accoun_Application.Contracts.User.Queries.CheckUserDetails;

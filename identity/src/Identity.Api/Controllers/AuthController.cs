@@ -1,6 +1,7 @@
 ﻿using Identity_Application.Contracts.User.Commands.ChangePassword;
 using Identity_Application.Contracts.User.Commands.LoginUser;
 using Identity_Application.Contracts.User.Commands.RegisterUser;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;

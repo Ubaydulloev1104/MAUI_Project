@@ -1,6 +1,7 @@
 ﻿using Identity_Application.Common.Exceptions;
 using Identity_Application.Common.Interfaces.Services;
 using Identity_Application.Contracts.User.Responses;
+using MediatR;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using TSR_Accoun_Application.Contracts.User.Queries;

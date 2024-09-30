@@ -1,6 +1,7 @@
 ﻿using Identity_Application.Common.Interfaces.DbContexts;
 using Identity_Application.Contracts.Claim.Commands;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
