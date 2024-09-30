@@ -2,6 +2,7 @@
 using Identity_Application.Contracts.Claim.Queries;
 using Identity_Application.Contracts.Claim.Responses;
 using Identity_Infrastructure.Identity;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;

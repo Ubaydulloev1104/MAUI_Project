@@ -3,6 +3,7 @@ using Identity_Application.Common.Exceptions;
 using Identity_Application.Common.Interfaces.Services;
 using Identity_Application.Contracts.Profile.Commands.UpdateProfile;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

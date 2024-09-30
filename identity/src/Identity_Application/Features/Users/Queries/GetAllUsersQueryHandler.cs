@@ -3,7 +3,8 @@ using Identity_Application.Contracts.User.Responses;
 using Identity_Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TSR_Accoun_Application.Contracts.User.Queries;
+using Identity_Application.Contracts.User.Queries;
+using MediatR;
 
 namespace Identity_Application.Features.Users.Queries;
 

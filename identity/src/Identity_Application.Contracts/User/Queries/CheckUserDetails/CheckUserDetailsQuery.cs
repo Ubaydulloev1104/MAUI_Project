@@ -1,7 +1,8 @@
-﻿using MediatR;
-using TSR_Accoun_Application.Contracts.User.Responses;
+﻿using Identity_Application.Contracts.User.Responses;
+using MediatR;
 
-namespace TSR_Accoun_Application.Contracts.User.Queries.CheckUserDetails
+
+namespace Identity_Application.Contracts.User.Queries.CheckUserDetails
 {
 	public class CheckUserDetailsQuery : IRequest<UserDetailsResponse>
 	{

@@ -2,10 +2,15 @@
 using Identity_Application.Common.Interfaces.Services;
 using Identity_Domain.Entities;
 using Identity_Infrastructure.Account.Services;
+using Identity_Infrastructure.Identity;
 using Identity_Infrastructure.Persistence;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
@@ -40,10 +45,10 @@ public static class DependencyInitializer
             options.Password.RequireUppercase = true;
             options.Password.RequireDigit = true;
             options.Password.RequiredLength = 8;
-            options.ClaimsIdentity.EmailClaimType = TSR_Accoun_Application.ClaimTypes.Email;
-            options.ClaimsIdentity.RoleClaimType = TSR_Accoun_Application.ClaimTypes.Role;
-            options.ClaimsIdentity.UserIdClaimType = TSR_Accoun_Application.ClaimTypes.Id;
-            options.ClaimsIdentity.UserNameClaimType = TSR_Accoun_Application.ClaimTypes.Username;
+            options.ClaimsIdentity.EmailClaimType = Identity_Application.ClaimTypes.Email;
+            options.ClaimsIdentity.RoleClaimType = Identity_Application.ClaimTypes.Role;
+            options.ClaimsIdentity.UserIdClaimType = Identity_Application.ClaimTypes.Id;
+            options.ClaimsIdentity.UserNameClaimType = Identity_Application.ClaimTypes.Username;
             options.User.RequireUniqueEmail = false;
         })
        .AddEntityFrameworkStores<ApplicationDbContext>()

@@ -2,6 +2,7 @@
 using Identity_Application.Common.Interfaces.Services;
 using Identity_Application.Contracts.User.Commands.ChangePassword;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 
 namespace Identity_Application.Features.Users.Commands.UserPassword;

@@ -1,6 +1,7 @@
 ﻿using Identity_Application.Common.Exceptions;
 using Identity_Application.Contracts.ApplicationRoles.Commands;
 using Identity_Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

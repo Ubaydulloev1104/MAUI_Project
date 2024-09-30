@@ -1,11 +1,11 @@
 ﻿using Identity_Application.Contracts.User.Commands.ChangePassword;
 using Identity_Application.Contracts.User.Commands.LoginUser;
 using Identity_Application.Contracts.User.Commands.RegisterUser;
+using Identity_Application.Contracts.User.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
-using TSR_Accoun_Application.Contracts.User.Queries;
+
 
 namespace Identity.Api.Controllers;
 

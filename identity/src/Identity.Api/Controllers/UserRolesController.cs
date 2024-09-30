@@ -1,6 +1,7 @@
 ﻿using Identity_Application.Contracts.UserRoles.Commands;
 using Identity_Application.Contracts.UserRoles.Queries;
 using Identity_Infrastructure.Identity;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

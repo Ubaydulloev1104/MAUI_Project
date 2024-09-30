@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
-using TSR_Accoun_Application.Contracts.User.Queries.CheckUserDetails;
-using TSR_Accoun_Application.Contracts.User.Queries;
+using MediatR;
+using Identity_Application.Contracts.User.Queries;
+using Identity_Application.Contracts.User.Queries.CheckUserDetails;
 
 namespace Identity.Api.Controllers;
 

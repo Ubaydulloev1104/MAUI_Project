@@ -1,12 +1,11 @@
 ﻿using MediatR;
-using TSR_Accoun_Application.Contracts.User.Responses;
+using Identity_Application.Contracts.User.Responses;
 
-namespace TSR_Accoun_Application.Contracts.User.Queries
-{
+namespace Identity_Application.Contracts.User.Queries;
+
 #nullable disable
-	public record GetAccessTokenUsingRefreshTokenQuery : IRequest<JwtTokenResponse>
-	{
-		public string RefreshToken { get; set; }
-		public string AccessToken { get; set; }
-	}
+public record GetAccessTokenUsingRefreshTokenQuery : IRequest<JwtTokenResponse>
+{
+	public string RefreshToken { get; set; }
+	public string AccessToken { get; set; }
 }

@@ -1,5 +1,6 @@
 ﻿using Identity_Application.Contracts.Profile.Commands.UpdateProfile;
 using Identity_Application.Contracts.Profile.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

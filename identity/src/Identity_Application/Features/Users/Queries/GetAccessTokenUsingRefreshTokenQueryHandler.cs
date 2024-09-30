@@ -4,7 +4,7 @@ using Identity_Application.Contracts.User.Responses;
 using MediatR;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using TSR_Accoun_Application.Contracts.User.Queries;
+using Identity_Application.Contracts.User.Queries;
 
 namespace Identity_Application.Features.Users.Queries;
 

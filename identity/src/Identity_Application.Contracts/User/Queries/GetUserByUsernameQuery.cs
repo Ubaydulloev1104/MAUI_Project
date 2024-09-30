@@ -1,10 +1,10 @@
-﻿using MediatR;
-using TSR_Accoun_Application.Contracts.User.Responses;
+﻿using Identity_Application.Contracts.User.Responses;
+using MediatR;
 
-namespace TSR_Accoun_Application.Contracts.User.Queries
+
+namespace Identity_Application.Contracts.User.Queries;
+
+public class GetUserByUsernameQuery : IRequest<UserResponse>
 {
-	public class GetUserByUsernameQuery : IRequest<UserResponse>
-	{
-		public string UserName { get; set; }
-	}
+	public string UserName { get; set; }
 }

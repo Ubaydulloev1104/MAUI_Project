@@ -4,6 +4,7 @@ using Identity_Application.Common.Interfaces.DbContexts;
 using Identity_Application.Common.Interfaces.Services;
 using Identity_Application.Contracts.Profile.Queries;
 using Identity_Application.Contracts.Profile.Responses;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Identity_Application.Features.UserProfiles.Queries;
