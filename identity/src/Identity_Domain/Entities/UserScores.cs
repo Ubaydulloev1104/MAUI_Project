@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Identity_Domain.Entities
+﻿namespace Identity_Domain.Entities;
+public class UserScores
 {
-    internal class UserScores
-    {
-    }
+    public int Id { get; set; } 
+    public int Score { get; set; }
+    public int UserId { get; set; }
+    public int Points { get; set; }
+    public string IncorrectQuestion { get; set; }
+    public DateTime LastUpdated { get; set; }
 }
