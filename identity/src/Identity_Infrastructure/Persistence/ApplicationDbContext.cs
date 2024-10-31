@@ -16,6 +16,8 @@ IdentityUserToken<Guid>>, IApplicationDbContext
     {
     }
 
+    public DbSet<UserScores> UserScores {  get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
