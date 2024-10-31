@@ -1,5 +1,11 @@
-﻿namespace Identity.Api.Controllers;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-public class UserScoresControllrer
+namespace Identity.Api.Controllers;
+[Route("api/[controller]")]
+[ApiController]
+[Authorize]
+public class UserScoresControllrer:ControllerBase
 {
+
 }
