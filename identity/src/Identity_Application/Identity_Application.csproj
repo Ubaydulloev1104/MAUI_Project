@@ -21,4 +21,9 @@
     <ProjectReference Include="..\Identity_Domain\Identity_Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\UserScores\Queries\" />
+    <Folder Include="Features\UserScores\Commands\" />
+  </ItemGroup>
+
 </Project>
