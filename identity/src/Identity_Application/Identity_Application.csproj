@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\UserScores\Queries\" />
     <Folder Include="Features\UserScores\Commands\" />
   </ItemGroup>
 
