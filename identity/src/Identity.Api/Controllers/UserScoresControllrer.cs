@@ -1,5 +1,7 @@
 ﻿using Identity_Application.Contracts.Profile.Commands.UpdateProfile;
 using Identity_Application.Contracts.Profile.Queries;
+using Identity_Application.Contracts.User.Queries;
+using Identity_Application.Contracts.UserScores.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +18,13 @@ public class UserScoresControllrer:ControllerBase
     {
         _mediator = mediator;
     }
-   
+    [HttpGet]
+    public async Task<IActionResult> GetAllUserScores()
+    {
+        var users = await _mediator.Send(new GetAllUsersScoresQuery());
+        return Ok(users);
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetUserScores([FromQuery] string userName = null)
     {

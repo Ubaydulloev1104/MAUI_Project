@@ -3,8 +3,8 @@ using MediatR;
 
 namespace Identity_Application.Contracts.UserScores.Queries
 {
-    public class GetAllUsersScoresQuery : IRequest<List<UserScoresResponse>>
+    public class GetUserScoresByUsernameQuery : IRequest<UserScoresResponse>
     {
-
+        public string UserName { get; set; }
     }
 }
