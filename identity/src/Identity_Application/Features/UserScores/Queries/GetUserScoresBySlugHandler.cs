@@ -3,6 +3,7 @@ using AutoMapper;
 using Identity_Application.Common.Exceptions;
 using Identity_Application.Common.Interfaces.DbContexts;
 using Identity_Application.Contracts.Claim.Responses;
+using Identity_Application.Contracts.User.Responses;
 using Identity_Application.Contracts.UserScores.Queries;
 using Identity_Application.Contracts.UserScores.Response;
 using MediatR;
@@ -23,18 +24,13 @@ namespace Identity_Application.Features.UserScores.Queries
         }
         public async Task<UserScoresResponse> Handle(GetUserScoresByUsernameQuery request, CancellationToken cancellationToken)
         {
-            var userscores = await _context.UserScores.SingleOrDefaultAsync(s => s.UserId == request.UserName.Trim().ToLower(),
+            var userscores = await _context.UserScores.SingleOrDefaultAsync(s => s.User.UserName == request.UserName.Trim().ToLower(),
                  cancellationToken);
             _ = userscores ?? throw new NotFoundException("userscores not found");
-            return new UserClaimsResponse
-            {
-                Username = userscores.Slug.Split('-').First(),
-                ClaimType = userscores.ClaimType!,
-                ClaimValue = userscores.ClaimValue!,
-                Slug = userscores.Slug
-            };
-
+            var result = _mapper.Map<UserScoresResponse>(userscores);
             return result;
+
+       
         }
     }
 }
