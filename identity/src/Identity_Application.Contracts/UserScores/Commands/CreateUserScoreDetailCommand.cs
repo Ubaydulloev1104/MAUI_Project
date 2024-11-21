@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Identity_Application.Features.UserScores.Commands
+namespace Identity_Application.Contracts.UserScores.Commands
 {
-    internal class Class1
+    internal class CreateUserScoreDetailCommand
     {
     }
 }
