@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Identity_Application.Contracts.UserScores.Commands;
+namespace Identity_Application.Contracts.UserScores.Commands.Create;
 
 public class CreateUserScoreDetailCommand : IRequest<Guid>
 {
