@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Identity_Application.Features.UserScores.Commands
+namespace Identity_Application.Features.UserScore.Commands
 {
     public class CreateUserScoreCommandHandler
     {
