@@ -23,9 +23,9 @@ public class GetAllUserScoresQueryHandler : IRequestHandler<GetAllUsersScoresQue
     }
     public async Task<List<UserScoresResponse>> Handle(GetAllUsersScoresQuery request, CancellationToken cancellationToken)
     {
-        var educations = await _dbContext.UserScores
+        var UserScores = await _dbContext.UserScores
              .ToListAsync();
-        var response = educations.
+        var response = UserScores.
                  Select(e => _mapper.Map<UserScoresResponse>(e)).ToList();
         return response;
     }

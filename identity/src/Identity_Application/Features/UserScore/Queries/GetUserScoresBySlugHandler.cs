@@ -41,8 +41,8 @@ namespace Identity_Application.Features.UserScore.Queries
                 .FirstOrDefaultAsync(u => u.UserName == userName);
             _ = user ?? throw new NotFoundException("user is not found");
 
-            var userEducationResponses = user.UserScores;
-            var result = _mapper.Map<UserScoresResponse>(userEducationResponses);
+            var userScoreResponses = user.UserScores;
+            var result = _mapper.Map<UserScoresResponse>(userScoreResponses);
             return result;
 
 

@@ -27,10 +27,10 @@ public class DeleteUserScoreDetailHandler : IRequestHandler<DeleteUserScoreComma
             .FirstOrDefaultAsync(u => u.Id == userId);
         _ = user ?? throw new NotFoundException("user is not found");
 
-        var education = user.UserScores.FirstOrDefault(e => e.Id == request.Id);
-        _ = education ?? throw new NotFoundException("This User has not such education");
+        var UserScore = user.UserScores.FirstOrDefault(e => e.Id == request.Id);
+        _ = UserScore ?? throw new NotFoundException("This User has not such UserScore");
 
-        user.UserScores.Remove(education);
+        user.UserScores.Remove(UserScore);
 
         await _context.SaveChangesAsync();
 

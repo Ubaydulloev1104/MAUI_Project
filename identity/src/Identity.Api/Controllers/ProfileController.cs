@@ -64,7 +64,7 @@ public class ProfileController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("GetAllEducations")]
+    [HttpGet("GetAllUserScore")]
     public async Task<IActionResult> GetAllUserScore()
     {
         var result = await _mediator.Send(new GetAllUsersScoresQuery());
