@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Identity_Application.Features.UserScore.Commands;
 
-public class DeleteUserScoreDetailHandler: IRequestHandler<DeleteUserScoreCommand, bool>
+public class DeleteUserScoreDetailHandler : IRequestHandler<DeleteUserScoreCommand, bool>
 {
     private readonly IApplicationDbContext _context;
     private readonly IUserHttpContextAccessor _userHttpContextAccessor;

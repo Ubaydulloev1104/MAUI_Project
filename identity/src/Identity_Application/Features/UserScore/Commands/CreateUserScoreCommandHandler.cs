@@ -5,11 +5,6 @@ using Identity_Application.Contracts.UserScores.Commands.Create;
 using Identity_Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Identity_Application.Features.UserScore.Commands
 {
@@ -32,21 +27,18 @@ namespace Identity_Application.Features.UserScore.Commands
                 .FirstOrDefaultAsync(u => u.Id.Equals(userId));
             _ = user ?? throw new NotFoundException("user is not found");
 
-            var textInfo = System.Globalization.CultureInfo.CurrentCulture.TextInfo;
 
 
-            var education = new UserScores()
+            var UserScore = new UserScores()
             {
-                University = university,
-                Speciality = speciality,
-                StartDate = request.StartDate.HasValue ? request.StartDate.Value : default(DateTime),
-                EndDate = request.EndDate.HasValue ? request.EndDate.Value : default(DateTime),
-                UntilNow = request.UntilNow
+                LastUpdated = DateTime.UtcNow,
+                IncorrectQuestion = request.IncorrectQuestion,
+                Score = request.Score,
             };
 
-            user.UserScores.Add(education);
+            user.UserScores.Add(UserScore);
             await _context.SaveChangesAsync();
-            return education.Id;
+            return UserScore.Id;
         }
     }
 }

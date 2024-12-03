@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Identity_Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241101162246_InitialMigration")]
+    [Migration("20241203173125_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -185,11 +185,9 @@ namespace Identity_Infrastructure.Migrations
 
             modelBuilder.Entity("Identity_Domain.Entities.UserScores", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("IncorrectQuestion")
                         .HasColumnType("nvarchar(max)");
@@ -199,9 +197,6 @@ namespace Identity_Infrastructure.Migrations
 
                     b.Property<int>("Score")
                         .HasColumnType("int");
-
-                    b.Property<string>("Slug")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");

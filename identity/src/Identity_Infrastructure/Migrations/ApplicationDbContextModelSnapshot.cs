@@ -182,11 +182,9 @@ namespace Identity_Infrastructure.Migrations
 
             modelBuilder.Entity("Identity_Domain.Entities.UserScores", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("IncorrectQuestion")
                         .HasColumnType("nvarchar(max)");
@@ -196,9 +194,6 @@ namespace Identity_Infrastructure.Migrations
 
                     b.Property<int>("Score")
                         .HasColumnType("int");
-
-                    b.Property<string>("Slug")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
