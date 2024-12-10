@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{EBF5B458-AF84-4DC1-889B-BC7D32175311}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{EBF5B458-AF84-4DC1-889B-BC7D32175311}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity_Application.Contracts", "..\identity\src\Identity_Application.Contracts\Identity_Application.Contracts.csproj", "{33CB25F0-9784-4811-80A9-5AA1EF722761}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{EBF5B458-AF84-4DC1-889B-BC7D32175311}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBF5B458-AF84-4DC1-889B-BC7D32175311}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBF5B458-AF84-4DC1-889B-BC7D32175311}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{33CB25F0-9784-4811-80A9-5AA1EF722761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33CB25F0-9784-4811-80A9-5AA1EF722761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33CB25F0-9784-4811-80A9-5AA1EF722761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33CB25F0-9784-4811-80A9-5AA1EF722761}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

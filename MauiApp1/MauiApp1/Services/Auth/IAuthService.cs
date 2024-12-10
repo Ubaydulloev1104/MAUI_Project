@@ -1,4 +1,9 @@
-﻿namespace MauiApp1.Services.Auth
+﻿using Identity_Application.Contracts.User.Commands.ChangePassword;
+using Identity_Application.Contracts.User.Commands.LoginUser;
+using Identity_Application.Contracts.User.Commands.RegisterUser;
+using Identity_Application.Contracts.User.Queries.CheckUserDetails;
+
+namespace MauiApp1.Services.Auth
 {
     public interface IAuthService
     {
