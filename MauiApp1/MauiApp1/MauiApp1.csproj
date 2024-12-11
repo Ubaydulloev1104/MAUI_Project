@@ -71,10 +71,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Services\Profile\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\..\identity\src\Identity_Application.Contracts\Identity_Application.Contracts.csproj" />
 	</ItemGroup>
 
