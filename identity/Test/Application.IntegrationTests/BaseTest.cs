@@ -123,7 +123,6 @@ namespace Application.IntegrationTests
             var user = await userManager.FindByNameAsync("@Azamjon123");
             Applicant = user;
             var prefics = "http://schemas.microsoft.com/ws/2008/06/identity/claims/";
-
             var claims = new List<Claim>
         {
             new Claim($"{prefics}role", "Applicant"),
