@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Identity_Domain\Identity_Domain.csproj" />
+  </ItemGroup>
+
 </Project>

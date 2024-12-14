@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-
-
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
-
+ <ItemGroup>
+    <None Remove="appsettings.json" />
+  </ItemGroup>  
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
@@ -22,13 +22,9 @@
     <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.3" />
     <PackageReference Include="Moq" Version="4.20.70" />
   </ItemGroup>
-
+ 
   <ItemGroup>
-    <Folder Include="Users\" />
-    <Folder Include="UserRoles\" />
-    <Folder Include="UserProfile\" />
-    <Folder Include="Roles\" />
-    <Folder Include="UserScore\" />
+    <ProjectReference Include="..\..\src\Identity.Api\Identity.Api.csproj" />
   </ItemGroup>
 
 </Project>

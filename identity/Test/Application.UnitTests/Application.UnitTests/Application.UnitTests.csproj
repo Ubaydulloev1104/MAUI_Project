@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Identity.Api\Identity.Api.csproj" />
+    <ProjectReference Include="..\..\..\src\Identity_Infrastructure\Identity_Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
