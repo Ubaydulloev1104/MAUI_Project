@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Security.Claims;
+using System.Security.Claims;
 
 namespace Application.IntegrationTests
 {
@@ -123,13 +124,13 @@ namespace Application.IntegrationTests
             var user = await userManager.FindByNameAsync("@Azamjon123");
             Applicant = user;
             var prefics = "http://schemas.microsoft.com/ws/2008/06/identity/claims/";
-            var claims = new List<Claim>
+            var claims = new List<System.Security.Claims.Claim>
         {
-            new Claim($"{prefics}role", "Applicant"),
-            new Claim($"{prefics}Id", user.Id.ToString()),
-            new Claim($"{prefics}username", user.UserName),
-            new Claim($"{prefics}email", user.Email),
-            new Claim($"{prefics}application", "TSR")
+            new System.Security.Claims.Claim($"{prefics}role", "Applicant"),
+            new System.Security.Claims.Claim($"{prefics}Id", user.Id.ToString()),
+            new System.Security.Claims.Claim($"{prefics}username", user.UserName),
+            new System.Security.Claims.Claim($"{prefics}email", user.Email),
+            new System.Security.Claims.Claim($"{prefics}application", "TSR")
         };
             var token = tokenService.CreateTokenByClaims(claims, out _);
 
@@ -144,13 +145,13 @@ namespace Application.IntegrationTests
             var reviewer = await userManager.Users.FirstOrDefaultAsync(s => s.UserName == "@Reviewer");
             var prefics = "http://schemas.microsoft.com/ws/2008/06/identity/claims/";
             Reviewer = reviewer;
-            var claims = new List<Claim>
+            var claims = new List<System.Security.Claims.Claim>
         {
-            new Claim($"{prefics}role", "Reviewer"),
-            new Claim($"{prefics}Id", reviewer.Id.ToString()),
-            new Claim($"{prefics}username", reviewer.UserName),
-            new Claim($"{prefics}email", reviewer.Email),
-            new Claim($"{prefics}application", "TSR")
+            new System.Security.Claims.Claim($"{prefics}role", "Reviewer"),
+            new System.Security.Claims.Claim($"{prefics}Id", reviewer.Id.ToString()),
+            new System.Security.Claims.Claim($"{prefics}username", reviewer.UserName),
+            new System.Security.Claims.Claim($"{prefics}email", reviewer.Email),
+            new System.Security.Claims.Claim($"{prefics}application", "TSR")
         };
             var token = tokenService.CreateTokenByClaims(claims, out _);
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
