@@ -5,10 +5,10 @@ namespace MauiApp1;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
-	{
-		InitializeComponent();
-	}
+    public LoginPage()
+    {
+        InitializeComponent();
+    }
     private async void OnLoginButtonClicked(object sender, EventArgs e)
     {
         var username = usernameEntry.Text;
@@ -33,3 +33,4 @@ public partial class LoginPage : ContentPage
             await DisplayAlert("Error", errorMessage, "OK");
         }
     }
+}
