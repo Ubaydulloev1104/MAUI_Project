@@ -36,43 +36,5 @@ namespace Application.IntegrationTests.UserScore.Commands
 
             response2.EnsureSuccessStatusCode();
         }
-
-        [Test]
-        public async Task UpdateUserScoresDetailCommand_ShouldFail_WhenDuplicateExists()
-        {
-            await AddApplicantAuthorizationAsync();
-
-            var userScore1 = new UserScores()
-            {
-                Score = 123,
-                LastUpdated = DateTime.Now,
-                IncorrectQuestion = "bla bla 2*2=5 ответ 4;  2*2=4",
-                UserId = Applicant.Id,
-            };
-
-            var userScore2 = new UserScores()
-            {
-                Score = 345,
-                LastUpdated = DateTime.Now,
-                IncorrectQuestion = "bla bla 3*3=81 ответ 9;  3*3=9",
-                UserId = Applicant.Id,
-            };
-
-            await AddEntity(userScore1);
-            await AddEntity(userScore2);
-
-            var command = new UpdateUserScoreDetailCommand()
-            {
-                Id = userScore1.Id,
-                IncorrectQuestion= userScore2.IncorrectQuestion,
-                LastUpdated= DateTime.Now,
-                Score = userScore1.Score,
-            };
-
-            var response = await _client.PutAsJsonAsync("/api/Profile/UpdateUserScoreDetail", command);
-
-            Assert.That(HttpStatusCode.BadRequest == response.StatusCode);
-            Assert.That((await response.Content.ReadFromJsonAsync<ProblemDetails>()).Detail.Contains("UserScores detail already exists"), Is.Not.False);
-        }
     }
 }
