@@ -10,7 +10,7 @@ namespace Identity_Application.Contracts.User.Commands.RegisterUser
 		public string PhoneNumber { get; set; } = "";
 		public string Username { get; set; } = "";
 		public string Password { get; set; } = "";
-		public string Application { get; set; } = "TSR";
+		public string Application { get; set; } = "Math";
 		public string ConfirmPassword { get; set; } = "";
 		public string Role { get; set; } = "Applicant";
 	}

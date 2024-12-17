@@ -130,7 +130,7 @@ namespace Application.IntegrationTests
             new System.Security.Claims.Claim($"{prefics}Id", user.Id.ToString()),
             new System.Security.Claims.Claim($"{prefics}username", user.UserName),
             new System.Security.Claims.Claim($"{prefics}email", user.Email),
-            new System.Security.Claims.Claim($"{prefics}application", "TSR")
+            new System.Security.Claims.Claim($"{prefics}application", "Au007")
         };
             var token = tokenService.CreateTokenByClaims(claims, out _);
 
@@ -151,7 +151,7 @@ namespace Application.IntegrationTests
             new System.Security.Claims.Claim($"{prefics}Id", reviewer.Id.ToString()),
             new System.Security.Claims.Claim($"{prefics}username", reviewer.UserName),
             new System.Security.Claims.Claim($"{prefics}email", reviewer.Email),
-            new System.Security.Claims.Claim($"{prefics}application", "TSR")
+            new System.Security.Claims.Claim($"{prefics}application", "Au007")
         };
             var token = tokenService.CreateTokenByClaims(claims, out _);
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);

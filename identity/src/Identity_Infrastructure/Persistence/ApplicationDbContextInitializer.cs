@@ -33,13 +33,13 @@ public class ApplicationDbContextInitializer
     private async Task CreateApplicationAdmin(string applicationName, string adminPassword)
     {
         //create user
-        var TSRAdminUser =
+        var MathAdminUser =
             await _userManager.Users.SingleOrDefaultAsync(u =>
                 u.NormalizedUserName == $"{applicationName}ADMIN".ToUpper());
 
-        if (TSRAdminUser == null)
+        if (MathAdminUser == null)
         {
-            TSRAdminUser = new ApplicationUser
+            MathAdminUser = new ApplicationUser
             {
                 Id = Guid.NewGuid(),
                 UserName = $"{applicationName}Admin",
@@ -47,17 +47,17 @@ public class ApplicationDbContextInitializer
                 Email = $"{applicationName.ToLower()}ubaydulloev1104@gmail.com",
             };
 
-            var createTSRAdminResult = await _userManager.CreateAsync(TSRAdminUser, adminPassword);
-            ThrowExceptionFromIdentityResult(createTSRAdminResult);
+            var createMathAdminResult = await _userManager.CreateAsync(MathAdminUser, adminPassword);
+            ThrowExceptionFromIdentityResult(createMathAdminResult);
         }
         //create user
 
         //create userRole
         var userRole = new ApplicationUserRole
         {
-            UserId = TSRAdminUser.Id,
+            UserId = MathAdminUser.Id,
             RoleId = _applicationRole.Id,
-            Slug = $"{TSRAdminUser.UserName}-role"
+            Slug = $"{MathAdminUser.UserName}-role"
         };
 
         if (!await _context.UserRoles.AnyAsync(s => s.RoleId == userRole.RoleId && s.UserId == userRole.UserId))
@@ -69,15 +69,15 @@ public class ApplicationDbContextInitializer
 
         //create role claim
         if (!await _context.UserClaims.AnyAsync(s =>
-                s.UserId == TSRAdminUser.Id &&
+                s.UserId == MathAdminUser.Id &&
                 s.ClaimType == Identity_Application.ClaimTypes.Role))
         {
             var userRoleClaim = new ApplicationUserClaim
             {
-                UserId = TSRAdminUser.Id,
+                UserId = MathAdminUser.Id,
                 ClaimType = Identity_Application.ClaimTypes.Role,
                 ClaimValue = ApplicationClaimValues.Administrator,
-                Slug = $"{TSRAdminUser.UserName}-role"
+                Slug = $"{MathAdminUser.UserName}-role"
             };
             await _context.UserClaims.AddAsync(userRoleClaim);
         }
@@ -85,15 +85,15 @@ public class ApplicationDbContextInitializer
 
         //create email claim
         if (!await _context.UserClaims.AnyAsync(s =>
-                s.UserId == TSRAdminUser.Id &&
+                s.UserId == MathAdminUser.Id &&
                 s.ClaimType == Identity_Application.ClaimTypes.Role))
         {
             var userRoleClaim = new ApplicationUserClaim
             {
-                UserId = TSRAdminUser.Id,
+                UserId = MathAdminUser.Id,
                 ClaimType = Identity_Application.ClaimTypes.Email,
-                ClaimValue = TSRAdminUser.Email,
-                Slug = $"{TSRAdminUser.UserName}-email"
+                ClaimValue = MathAdminUser.Email,
+                Slug = $"{MathAdminUser.UserName}-email"
             };
             await _context.UserClaims.AddAsync(userRoleClaim);
         }
@@ -102,15 +102,15 @@ public class ApplicationDbContextInitializer
 
         //create application claim
         if (!await _context.UserClaims.AnyAsync(s =>
-                s.UserId == TSRAdminUser.Id &&
+                s.UserId == MathAdminUser.Id &&
                 s.ClaimType == Identity_Application.ClaimTypes.Application))
         {
             var userApplicationClaim = new ApplicationUserClaim
             {
-                UserId = TSRAdminUser.Id,
+                UserId = MathAdminUser.Id,
                 ClaimType = Identity_Application.ClaimTypes.Application,
                 ClaimValue = applicationName,
-                Slug = $"{TSRAdminUser.UserName}-application"
+                Slug = $"{MathAdminUser.UserName}-application"
             };
             await _context.UserClaims.AddAsync(userApplicationClaim);
         }
@@ -119,15 +119,15 @@ public class ApplicationDbContextInitializer
 
         //create username claim
         if (!await _context.UserClaims.AnyAsync(s =>
-                s.UserId == TSRAdminUser.Id &&
+                s.UserId == MathAdminUser.Id &&
                 s.ClaimType == Identity_Application.ClaimTypes.Username))
         {
             var userApplicationClaim = new ApplicationUserClaim
             {
-                UserId = TSRAdminUser.Id,
+                UserId = MathAdminUser.Id,
                 ClaimType = Identity_Application.ClaimTypes.Username,
-                ClaimValue = TSRAdminUser.UserName,
-                Slug = $"{TSRAdminUser.UserName}-username"
+                ClaimValue = MathAdminUser.UserName,
+                Slug = $"{MathAdminUser.UserName}-username"
             };
             await _context.UserClaims.AddAsync(userApplicationClaim);
         }
@@ -135,15 +135,15 @@ public class ApplicationDbContextInitializer
 
         //create id claim
         if (!await _context.UserClaims.AnyAsync(s =>
-                s.UserId == TSRAdminUser.Id &&
+                s.UserId == MathAdminUser.Id &&
                 s.ClaimType == Identity_Application.ClaimTypes.Id))
         {
             var userApplicationClaim = new ApplicationUserClaim
             {
-                UserId = TSRAdminUser.Id,
+                UserId = MathAdminUser.Id,
                 ClaimType = Identity_Application.ClaimTypes.Id,
-                ClaimValue = TSRAdminUser.Id.ToString(),
-                Slug = $"{TSRAdminUser.UserName}-id"
+                ClaimValue = MathAdminUser.Id.ToString(),
+                Slug = $"{MathAdminUser.UserName}-id"
             };
             await _context.UserClaims.AddAsync(userApplicationClaim);
         }

@@ -41,15 +41,15 @@ public class DataBaseSeedTests : BaseTest
 
     #endregion
 
-    #region TSRAdmin
+    #region Au007Admin
 
-    private async Task<ApplicationUser> GetTSRAdmin() =>
-        await GetEntity<ApplicationUser>(s => s.UserName == "TSRAdmin");
+    private async Task<ApplicationUser> GetMathAAdmin() =>
+        await GetEntity<ApplicationUser>(s => s.UserName == "Au007Admin");
 
     [Test]
-    public async Task TSRAdminRole()
+    public async Task MAthA_AdminRole()
     {
-        var superAdmin = await GetTSRAdmin();
+        var superAdmin = await GetMathAAdmin();
         var superAdminRole = await GetEntity<ApplicationRole>(s =>
             s.NormalizedName == ApplicationClaimValues.Administrator.ToUpper());
         superAdminRole.Should().NotBeNull();
@@ -62,15 +62,15 @@ public class DataBaseSeedTests : BaseTest
     }
 
     [Test]
-    public async Task TSRAdminUser()
+    public async Task MathAAdminUser()
     {
-        (await GetTSRAdmin()).Should().NotBeNull();
+        (await GetMathAAdmin()).Should().NotBeNull();
     }
 
     [Test]
-    public async Task TSRAdminClaims()
+    public async Task MAthAAdminClaims()
     {
-        var superAdmin = await GetTSRAdmin();
+        var superAdmin = await GetMathAAdmin();
 
         var roleClaim = await GetEntity<ApplicationUserClaim>(s =>
             s.UserId == superAdmin.Id &&
