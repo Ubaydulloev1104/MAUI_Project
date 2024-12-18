@@ -15,11 +15,11 @@ namespace MauiApp1.Services.Profile
     {
         Task<UserProfileResponse> Get(string userName = null);
         Task<string> Update(UpdateProfileCommand command);
-        Task<List<UserScoresResponse>> GetEducationsByUser();
-        Task<List<UserScoresResponse>> GetAllEducations();
-        Task<HttpResponseMessage> CreateEducationAsуnc(CreateUserScoreDetailCommand command);
-        Task<HttpResponseMessage> UpdateEducationAsync(UpdateUserScoreDetailCommand command);
-        Task<HttpResponseMessage> DeleteEducationAsync(Guid id);
+        Task<List<UserScoresResponse>> GetUserScoreByUser();
+        Task<List<UserScoresResponse>> GetAllUserScores();
+        Task<HttpResponseMessage> CreateUserScoreAsуnc(CreateUserScoreDetailCommand command);
+        Task<HttpResponseMessage> UpdateUserScoreAsync(UpdateUserScoreDetailCommand command);
+        Task<HttpResponseMessage> DeleteUserScoreAsync(Guid id);
 
         Task<bool> SendConfirmationCode(string phoneNumber);
     }

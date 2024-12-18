@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 
@@ -18,7 +19,7 @@ public partial class LoginPage : ContentPage
         var json = JsonSerializer.Serialize(loginData);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        var response = await _httpClient.PostAsync("https://yourapiurl.com/api/auth/login", content);
+        var response = await HttpClient.PostAsync("https://yourapiurl.com/api/auth/login", content);
 
         if (response.IsSuccessStatusCode)
         {
