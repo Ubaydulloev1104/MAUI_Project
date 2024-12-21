@@ -12,7 +12,7 @@
         private async void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
-            await Navigation.PushModalAsync(new NewPage1());
+            await Navigation.PushModalAsync(new LoginPage());
             if (count == 1)
                 CounterBtn.Text = $"Clicked {count} time";
             else

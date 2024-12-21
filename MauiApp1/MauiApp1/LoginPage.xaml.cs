@@ -1,37 +1,76 @@
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 
-namespace MauiApp1;
-
-public partial class LoginPage : ContentPage
+namespace MauiApp1
 {
-    public LoginPage()
+    public partial class LoginPage : ContentPage
     {
-        InitializeComponent();
-    }
-    private async void OnLoginButtonClicked(object sender, EventArgs e)
-    {
-        var username = usernameEntry.Text;
-        var password = passwordEntry.Text;
+        private readonly HttpClient _httpClient;
 
-        var loginData = new { Username = username, Password = password };
-        var json = JsonSerializer.Serialize(loginData);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        var response = await HttpClient.PostAsync("https://yourapiurl.com/api/auth/login", content);
-
-        if (response.IsSuccessStatusCode)
+        public LoginPage()
         {
-            // Успешный вход
-            var token = await response.Content.ReadAsStringAsync();
-            // Сохраните токен для дальнейшего использования (например, в SecureStorage)
+            InitializeComponent();
+            _httpClient = new HttpClient();
         }
-        else
+
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            // Обработка ошибки
-            var errorMessage = await response.Content.ReadAsStringAsync();
-            await DisplayAlert("Error", errorMessage, "OK");
+            try
+            {
+                // Get username and password from UI
+                string username = UsernameEntry.Text;
+                string password = PasswordEntry.Text;
+
+                // Create request body
+                var requestBody = new Dictionary<string, string>
+                {
+                    { "username", username },
+                    { "password", password }
+                };
+
+                // Serialize request body to JSON
+                var jsonContent = JsonSerializer.Serialize(requestBody);
+                var stringContent = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
+
+                // Send POST request
+                var response = await _httpClient.PostAsync("https://localhost:7279/api/Auth/login", stringContent);
+
+                // Check response status
+                if (response.IsSuccessStatusCode)
+                {
+                    // Deserialize response
+                    var authResponse = await response.Content.ReadFromJsonAsync<AuthResponse>();
+
+                    // Store tokens (e.g., in SecureStorage)
+                    SecureStorage.Default.SetAsync("AccessToken", authResponse.AccessToken);
+                    SecureStorage.Default.SetAsync("RefreshToken", authResponse.RefreshToken);
+
+                    // Navigate to the next page
+                    await Navigation.PushAsync(new MainPage());
+
+                }
+                else
+                {
+                    // Handle error (e.g., display error message)
+                    await DisplayAlert("Error", "Invalid username or password.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                await DisplayAlert("Error", ex.Message, "OK");
+            }
+        }
+
+        public class AuthResponse
+        {
+            public string AccessToken { get; set; }
+            public string RefreshToken { get; set; }
+            public DateTime AccessTokenValidateTo { get; set; }
         }
     }
 }
