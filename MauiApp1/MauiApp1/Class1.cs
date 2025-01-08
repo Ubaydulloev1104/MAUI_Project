@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace MauiApp1
 {
-    
-    public class IdentityHttpClient:HttpClient
+    internal class Class1
     {
-
     }
 }
