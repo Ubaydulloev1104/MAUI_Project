@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.IO;
 namespace MauiApp1.DB
 {
-    internal class DatabaseHelper
+    public static class DatabaseHelper
     {
+        public static string GetDatabasePath()
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            return Path.Combine(folderPath, "Math_Adventure.db");
+        }
     }
 }

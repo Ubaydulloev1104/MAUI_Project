@@ -1,12 +1,16 @@
-﻿namespace MauiApp1
+﻿using MauiApp1.DB;
+
+namespace MauiApp1
 {
     public partial class App : Application
     {
-        public App()
+        public static LocalDatabase Database { get; private set; }
+
+        public App(LocalDatabase database)
         {
             InitializeComponent();
-
-            MainPage = new AppShell();
+            Database = database;
+            MainPage = new MainPage();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiApp1.DB;
+using Microsoft.Extensions.Logging;
 
 namespace MauiApp1;
 
@@ -18,7 +19,10 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
+        // Настройка пути к базе данных
+        var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Math_Adventure.db");
+        builder.Services.AddSingleton(s => new LocalDatabase(dbPath));
+        builder.Services.AddSingleton<App>(); // Регистрируем App как Singleton
         return builder.Build();
     }
 }
