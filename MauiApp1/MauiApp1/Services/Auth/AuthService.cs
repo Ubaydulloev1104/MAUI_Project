@@ -5,13 +5,13 @@ using Identity_Application.Contracts.User.Queries.CheckUserDetails;
 using Identity_Application.Contracts.User.Responses;
 using MauiApp1.Identity;
 using MauiApp1.Services.Profile;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Json;
 
 namespace MauiApp1.Services.Auth
 {
-    public class AuthService(IdentityHttpClient identityHttpClient,
-          AuthenticationStateProvider authenticationStateProvider, IUserProfileService userProfileService)
+    public class AuthService(IdentityHttpClient identityHttpClient,IUserProfileService userProfileService)
       : IAuthService
     {
         public async Task<HttpResponseMessage> ChangePassword(ChangePasswordUserCommand command)
@@ -21,6 +21,8 @@ namespace MauiApp1.Services.Auth
             return result;
         }
 
+
+
         public async Task<string> LoginUserAsync(LoginUserCommand command, bool newRegister = false)
         {
             string errorMessage = null;
@@ -29,15 +31,10 @@ namespace MauiApp1.Services.Auth
                 var result = await identityHttpClient.PostAsJsonAsync("Auth/login", command);
                 if (result.IsSuccessStatusCode)
                 {
-                    var response = await result.Content.ReadFromJsonAsync<JwtTokenResponse>();
-                    await cookieUtil.SetValueAsync("authToken", response);
-                    await authenticationStateProvider.GetAuthenticationStateAsync();
-                    layoutService.User = await userProfileService.Get();
-                    if (!newRegister)
-                        navigationManager.NavigateTo("/");
-                    return null;
+                    var responseBody = await result.Content.ReadAsStringAsync();
+                    var authResponse = JsonConvert.DeserializeObject<LoginPage.AuthResponse>(responseBody);
+                    return authResponse.AccessToken;
                 }
-
                 if (result.StatusCode == HttpStatusCode.Unauthorized)
                 {
                     errorMessage = (await result.Content.ReadFromJsonAsync<CustomProblemDetails>()).Detail;
@@ -45,12 +42,10 @@ namespace MauiApp1.Services.Auth
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine(ex);
                 errorMessage = "Server is not responding, please try later";
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 errorMessage = "An error occurred";
             }
 

@@ -19,6 +19,18 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+
+        builder.Services.AddScoped<IdentityHttpClient>(provider =>
+        {
+            var client = new IdentityHttpClient
+            {
+                BaseAddress = new Uri("https://localhost:7279/api/")
+            };
+            return client;
+        });
+
+
+
         // Настройка пути к базе данных
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "Math_Adventure.db");
         builder.Services.AddSingleton(s => new LocalDatabase(dbPath));

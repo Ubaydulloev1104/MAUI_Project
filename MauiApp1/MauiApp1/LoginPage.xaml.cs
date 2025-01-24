@@ -1,71 +1,53 @@
-using System.Net.Http;
-using System.Net.Http.Headers;
+using Identity_Application.Contracts.User.Commands.LoginUser;
+using MauiApp1.Services.Auth;
 using System.Net.Http.Json;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace MauiApp1
 {
     public partial class LoginPage : ContentPage
     {
-        private readonly HttpClient _httpClient;
+        private readonly IAuthService _serverClient;
 
         public LoginPage()
         {
             InitializeComponent();
-            _httpClient = new HttpClient();
+            
         }
 
-        private async void LoginButton_Clicked(object sender, EventArgs e)
+        private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
-            try
+            var username = UsernameEntry.Text;
+            var password = PasswordEntry.Text;
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                // Get username and password from UI
-                string username = UsernameEntry.Text;
-                string password = PasswordEntry.Text;
-
-                // Create request body
-                var requestBody = new Dictionary<string, string>
-                {
-                    { "username", username },
-                    { "password", password }
-                };
-
-                // Serialize request body to JSON
-                var jsonContent = JsonSerializer.Serialize(requestBody);
-                var stringContent = new StringContent(jsonContent, System.Text.Encoding.UTF8, "application/json");
-
-                // Send POST request
-                var response = await _httpClient.PostAsync("https://localhost:7279/api/Auth/login", stringContent);
-
-                // Check response status
-                if (response.IsSuccessStatusCode)
-                {
-                    // Deserialize response
-                    var authResponse = await response.Content.ReadFromJsonAsync<AuthResponse>();
-
-                    // Store tokens (e.g., in SecureStorage)
-                    SecureStorage.Default.SetAsync("AccessToken", authResponse.AccessToken);
-                    SecureStorage.Default.SetAsync("RefreshToken", authResponse.RefreshToken);
-
-                    // Navigate to the next page
-                    await Navigation.PushAsync(new MainPage());
-
-                }
-                else
-                {
-                    // Handle error (e.g., display error message)
-                    await DisplayAlert("Error", "Invalid username or password.", "OK");
-                }
+                await DisplayAlert("Ошибка", "Пожалуйста, заполните все поля.", "ОК");
+                return;
             }
-            catch (Exception ex)
+
+            var token = await _serverClient.LoginUserAsync(new LoginUserCommand
             {
-                // Handle exceptions
-                await DisplayAlert("Error", ex.Message, "OK");
+                Username = username,
+                Password = password
+            });
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                await DisplayAlert("Успех", "Вы успешно вошли в систему!", "ОК");
+                // Переход на главную страницу
+                await Navigation.PushAsync(new MainPage());
+            }
+            else
+            {
+                await DisplayAlert("Ошибка", "Неверное имя пользователя или пароль.", "ОК");
             }
         }
-
+        private async void OnRegisterButtonClicked(object sender, EventArgs e)
+        {
+            // Переход на страницу регистрации
+            await Navigation.PushAsync(new RegisterPage());
+        }
         public class AuthResponse
         {
             public string AccessToken { get; set; }
