@@ -71,7 +71,7 @@
 	  <MauiXaml Update="NewPage1.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="NewPage2.xaml">
+	  <MauiXaml Update="LoadingView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="NewPage3.xaml">
@@ -84,6 +84,12 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\identity\src\Identity_Application.Contracts\Identity_Application.Contracts.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="LoadingView.xaml.cs">
+	    <DependentUpon>LoadingView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

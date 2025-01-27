@@ -68,8 +68,6 @@ namespace MauiApp1.Services.Auth
                         Password = command.Password,
                         Username = command.Username
                     });
-                    layoutService.User = await userProfileService.Get();
-                    navigationManager.NavigateTo("/profile");
 
                     return "";
                 }
@@ -81,12 +79,10 @@ namespace MauiApp1.Services.Auth
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine(ex);
                 return "Server is not responding, please try later";
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 return "An error occurred";
             }
         }
