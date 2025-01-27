@@ -3,44 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.RegisterPage"
              Title="RegisterPage">
-    <ScrollView>
-        <StackLayout Padding="20" Spacing="10">
-            <!-- Email -->
-            <Label Text="Email" FontAttributes="Bold" />
-            <Entry x:Name="EmailEntry" Placeholder="Введите ваш email" Keyboard="Email" />
+    <AbsoluteLayout>
+        <!-- Основное содержимое страницы -->
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Padding="20" Spacing="10">
+                <!-- Email -->
+                <Label Text="Email" FontAttributes="Bold" />
+                <Entry x:Name="EmailEntry" Placeholder="Введите ваш email" Keyboard="Email" />
 
-            <!-- First Name -->
-            <Label Text="Имя" FontAttributes="Bold" />
-            <Entry x:Name="FirstNameEntry" Placeholder="Введите ваше имя" />
+                <!-- First Name -->
+                <Label Text="Имя" FontAttributes="Bold" />
+                <Entry x:Name="FirstNameEntry" Placeholder="Введите ваше имя" />
 
-            <!-- Last Name -->
-            <Label Text="Фамилия" FontAttributes="Bold" />
-            <Entry x:Name="LastNameEntry" Placeholder="Введите вашу фамилию" />
+                <!-- Last Name -->
+                <Label Text="Фамилия" FontAttributes="Bold" />
+                <Entry x:Name="LastNameEntry" Placeholder="Введите вашу фамилию" />
 
-            <!-- Phone Number -->
-            <Label Text="Номер телефона" FontAttributes="Bold" />
-            <Entry x:Name="PhoneNumberEntry" Placeholder="Введите номер телефона" Keyboard="Telephone" />
+                <!-- Phone Number -->
+                <Label Text="Номер телефона" FontAttributes="Bold" />
+                <Entry x:Name="PhoneNumberEntry" Placeholder="Введите номер телефона" Keyboard="Telephone" />
 
-            <!-- Username -->
-            <Label Text="Имя пользователя" FontAttributes="Bold" />
-            <Entry x:Name="UsernameEntry" Placeholder="Введите имя пользователя" />
+                <!-- Username -->
+                <Label Text="Имя пользователя" FontAttributes="Bold" />
+                <Entry x:Name="UsernameEntry" Placeholder="Введите имя пользователя" />
 
-            <!-- Password -->
-            <Label Text="Пароль" FontAttributes="Bold" />
-            <Entry x:Name="PasswordEntry" Placeholder="Введите пароль" IsPassword="True" />
+                <!-- Password -->
+                <Label Text="Пароль" FontAttributes="Bold" />
+                <Entry x:Name="PasswordEntry" Placeholder="Введите пароль" IsPassword="True" />
 
-            <!-- Confirm Password -->
-            <Label Text="Подтвердите пароль" FontAttributes="Bold" />
-            <Entry x:Name="ConfirmPasswordEntry" Placeholder="Повторите пароль" IsPassword="True" />
+                <!-- Confirm Password -->
+                <Label Text="Подтвердите пароль" FontAttributes="Bold" />
+                <Entry x:Name="ConfirmPasswordEntry" Placeholder="Повторите пароль" IsPassword="True" />
 
-            <!-- Role (hidden field for now) -->
-            <Label Text="Роль" IsVisible="False" />
-            <Entry x:Name="RoleEntry" Text="Applicant" IsVisible="False" />
+                <!-- Role (hidden field for now) -->
+                <Label Text="Роль" IsVisible="False" />
+                <Entry x:Name="RoleEntry" Text="Applicant" IsVisible="False" />
 
-            <!-- Register Button -->
-            <Button Text="Зарегистрироваться" Clicked="OnRegisterButtonClicked" BackgroundColor="#007AFF" TextColor="White" />
+                <!-- Register Button -->
+                <Button Text="Зарегистрироваться" Clicked="OnRegisterButtonClicked" BackgroundColor="#007AFF" TextColor="White" />
 
-            <!-- Error Message -->
-            <Label x:Name="ErrorMessageLabel" TextColor="Red" IsVisible="False" />
-        </StackLayout>
+                <!-- Error Message -->
+                <Label x:Name="ErrorMessageLabel" TextColor="Red" IsVisible="False" />
+            </StackLayout>
+
+        </ScrollView>
+        <!-- Вид загрузки -->
+        <local:LoadingView x:Name="LoadingIndicator" IsVisible="False" />
+    </AbsoluteLayout>
 </ContentPage>
