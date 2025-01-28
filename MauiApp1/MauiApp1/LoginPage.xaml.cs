@@ -17,6 +17,8 @@ namespace MauiApp1
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
         {
+            LoadingIndicator.IsVisible = true;// Показать индикатор загрузки\
+            await Task.Delay(2000);
             var username = UsernameEntry.Text;
             var password = PasswordEntry.Text;
 
@@ -34,17 +36,20 @@ namespace MauiApp1
 
             if (!string.IsNullOrEmpty(token))
             {
+                LoadingIndicator.IsVisible = false;
                 await DisplayAlert("Успех", "Вы успешно вошли в систему!", "ОК");
                 // Переход на главную страницу
                 await Navigation.PushAsync(new MainPage());
             }
             else
             {
+                LoadingIndicator.IsVisible = false;
                 await DisplayAlert("Ошибка", "Неверное имя пользователя или пароль.", "ОК");
             }
         }
         private async void OnRegisterButtonClicked(object sender, EventArgs e)
         {
+
             // Переход на страницу регистрации
             await Navigation.PushAsync(new RegisterPage());
         }

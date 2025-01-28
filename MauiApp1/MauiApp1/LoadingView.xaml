@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.LoadingView"
-             Title="LoadingView">
+             x:Class="MauiApp1.LoadingView">
     <AbsoluteLayout>
         <!-- Полупрозрачный фон -->
         <BoxView BackgroundColor="Black" Opacity="0.5"
@@ -18,4 +17,4 @@
             <Label Text="Загрузка..." TextColor="White" HorizontalOptions="Center" />
         </StackLayout>
     </AbsoluteLayout>
-</ContentPage>
+</ContentView>

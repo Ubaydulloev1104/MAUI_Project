@@ -1,4 +1,5 @@
 ﻿using MauiApp1.DB;
+using MauiApp1.Services.Auth;
 using Microsoft.Extensions.Logging;
 
 namespace MauiApp1;
@@ -19,6 +20,7 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+        builder.Services.AddSingleton<IAuthService, AuthService>();
 
         builder.Services.AddScoped<IdentityHttpClient>(provider =>
         {

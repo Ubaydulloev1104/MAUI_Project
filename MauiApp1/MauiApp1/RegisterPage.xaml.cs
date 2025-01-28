@@ -13,7 +13,8 @@ public partial class RegisterPage : ContentPage
     private async void OnRegisterButtonClicked(object sender, EventArgs e)
     {
 
-        LoadingIndicator.IsVisible = true; // Показать индикатор загрузки
+        LoadingIndicator.IsVisible = true;// Показать индикатор загрузки\
+        await Task.Delay(2000);
         Console.WriteLine("Регистрация начата...");
 
         var command = new RegisterUserCommand

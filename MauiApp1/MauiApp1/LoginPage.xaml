@@ -1,11 +1,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp1"
              x:Class="MauiApp1.LoginPage">
-    <StackLayout Padding="20" Spacing="15">
-        <Label Text="Авторизация" FontSize="24" HorizontalOptions="Center" />
-        <Entry x:Name="UsernameEntry" Placeholder="Имя пользователя" />
-        <Entry x:Name="PasswordEntry" Placeholder="Пароль" IsPassword="True" />
-        <Button Text="Войти" Clicked="OnLoginButtonClicked" />
-        <Button Text="Регистрация" Clicked="OnRegisterButtonClicked" />
-    </StackLayout>
+    <AbsoluteLayout>
+        <!-- Основное содержимое страницы -->
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+
+            <StackLayout Padding="20" Spacing="15">
+                <Label Text="Авторизация" FontSize="24" HorizontalOptions="Center" />
+                <Entry x:Name="UsernameEntry" Placeholder="Имя пользователя" />
+                <Entry x:Name="PasswordEntry" Placeholder="Пароль" IsPassword="True" />
+                <Button Text="Войти" Clicked="OnLoginButtonClicked" />
+                <Button Text="Регистрация" Clicked="OnRegisterButtonClicked" />
+        <local:LoadingView x:Name="LoadingIndicator" IsVisible="False" />
+            </StackLayout>
+        </ScrollView>
+        <!-- Вид загрузки -->
+    </AbsoluteLayout>
 </ContentPage>
