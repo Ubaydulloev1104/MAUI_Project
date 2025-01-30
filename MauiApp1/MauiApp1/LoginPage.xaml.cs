@@ -51,7 +51,7 @@ namespace MauiApp1
         {
 
             // Переход на страницу регистрации
-            await Navigation.PushAsync(new RegisterPage());
+            await Navigation.PushModalAsync(new LoginPage());
         }
         public class AuthResponse
         {
